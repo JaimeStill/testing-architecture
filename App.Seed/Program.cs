@@ -4,10 +4,10 @@ using App.Services;
 try
 {
 	string env = args.Length > 0
-				? args[0]
-				: "Dev";
+		? args[0]
+		: "Dev";
 
-	using DbGenerator generator = new (env);
+	using DbGenerator generator = new(env);
 	await generator.InitializeAsync();
 
 	Console.WriteLine("Seeding Categories...");
