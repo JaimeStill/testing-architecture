@@ -26,7 +26,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
-	<AssemblyName>app-seed</AssemblyName>
+	<AssemblyName>app-db-cli</AssemblyName>
   </PropertyGroup>
 
 </Project>

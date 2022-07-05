@@ -7,7 +7,10 @@ try
 		? args[0]
 		: "Dev";
 
-	using DbManager manager = new(env);
+	bool destroy = args.Length > 1
+		&& bool.Parse(args[1]);
+
+	using DbManager manager = new(env, destroy);
 	await manager.InitializeAsync();
 
 	Console.WriteLine("Seeding Categories...");
