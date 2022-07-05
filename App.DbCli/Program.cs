@@ -1,4 +1,4 @@
-﻿using App.Seed;
+﻿using App.DbCli;
 using App.Services;
 
 try

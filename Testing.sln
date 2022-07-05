@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App.Core\App.Core.csproj", "{1D5FAE57-6A8F-482F-B575-24656960737A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DbCli", "App.DbCli\App.DbCli.csproj", "{B3F05E0C-AB86-4B91-AA99-4B1CB43668D4}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Data", "App.Data\App.Data.csproj", "{D1F06352-5939-4408-A176-050249337507}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Models", "App.Models\App.Models.csproj", "{EBF35BF0-F152-4854-8DE7-1706AFB2E16E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Seed", "App.Seed\App.Seed.csproj", "{B3F05E0C-AB86-4B91-AA99-4B1CB43668D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Services", "App.Services\App.Services.csproj", "{EFF953FC-D492-4368-8D38-B674492883DF}"
 EndProject

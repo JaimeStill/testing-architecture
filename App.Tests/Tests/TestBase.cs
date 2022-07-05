@@ -1,6 +1,6 @@
 using App.Core.Query;
 using App.Models;
-using App.Seed;
+using App.DbCli;
 
 namespace App.Tests;
 public abstract class TestBase<T, S> : IDisposable

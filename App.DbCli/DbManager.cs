@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using App.Data;
 
-namespace App.Seed;
+namespace App.DbCli;
 public class DbManager : IDisposable
 {
 	readonly bool destroy;

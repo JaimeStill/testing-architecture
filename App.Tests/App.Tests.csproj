@@ -25,7 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\App.Data\App.Data.csproj" />
     <ProjectReference Include="..\App.Models\App.Models.csproj" />
-    <ProjectReference Include="..\App.Seed\App.Seed.csproj" />
+    <ProjectReference Include="..\App.DbCli\App.DbCli.csproj" />
     <ProjectReference Include="..\App.Services\App.Services.csproj" />
   </ItemGroup>
 
