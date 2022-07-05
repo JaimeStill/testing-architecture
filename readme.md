@@ -38,8 +38,12 @@ App.DbCli> dotnet run -- "Test" true
 
 ## [Tests](./App.Tests/)
 
-[TestBase.cs](./App.Tests/Tests/TestBase.cs) is an abstract generic class that is intended to be used with any service of `IService<EntityBase>`. It is responsible for initializing / disposing the `DbManager` instance and defining tests for the `QueryAll`, `Find`, and `Remove` methods of `IService`.
+[ServiceFixture.cs](/App.Tests/Fixtures/ServiceFixture.cs) is responsible for initializing / disposing an internal `DbManager` instance that is used to create a public, readonly `IService<EntityBase>` instance based on the generic types assigned to `ServiceFixture<T, S>`. Additionally, it executes the `IService<EntityBase>.SeedTest()` method to initialize any starting test data.
 
-[CategoryTest.cs](./App.Tests/Tests/CategoryTest.cs) demonstrates an implementation of `TestBase`. It is responsible for initializing its service instance and seeding the database, as well as defining tests for its `Save` method and any other unique functionality provided by `CategoryService`.
+[PriorityOrderer.cs](./App.Tests/PriorityOrderer.cs) allows test methods to be decorated with a [TestPriorityAttribute](./App.Tests/Attributes/TestPriorityAttribute.cs) so that the order of test execution can be controlled. All test methods default to a priority of `0`.  The higher the test priority, the later it will be executed in the testing pipeline. Negative values are allowed. See [TestBase.Remove](./App.Tests/Tests/TestBase.cs#L38) for use case.
 
-Note the use of test data via `[MemberData(nameof(Data))]` as a simple way of providing multiple objects for executing the same test.
+[TestBase.cs](./App.Tests/Tests/TestBase.cs) is an abstract generic class that is intended to be used with any service of `IService<EntityBase>`. The service is accessed via the `ServiceFixture` class. It is responsible for defining tests for the `QueryAll`, `Find`, and `Remove` methods of `IService`.
+
+[CategoryTest.cs](./App.Tests/Tests/CategoryTest.cs) demonstrates an implementation of `TestBase`. It is responsible for defining tests for its `Save` method and any other unique functionality provided by `CategoryService`.
+
+> Note the use of test data via `[MemberData(nameof(Data))]` as a simple way of providing multiple objects for executing the same test.
