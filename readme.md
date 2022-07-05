@@ -7,7 +7,7 @@ In order to execute the tests, simply run `dotnet test` in a terminal from the r
 ![image](https://user-images.githubusercontent.com/14102723/177339934-88f68f69-8245-4bf5-bb90-35e4ce3218bb.png)
 
 ## [Services](./App.Services/)
-Testing is centered around [Services](./App.Services/). In addition to providing functionality, services also provide a [`SeedTest`](./App.Services/ServiceBase.cs#L103) method for establishing an initial data set when running tests.
+Testing is centered around [Services](./App.Services/). In addition to providing functionality, services also provide a [`SeedTest`](./App.Services/CategoryService.cs#L43) method for establishing an initial data set when running tests.
 
 ## [DbCli](./App.DbCli/)
 [DbManager.cs](./App.DbCli/DbManager.cs) enables the generation, initialization, migration, and optional destruction of an EF database. Connection is established via [appsettings.json](./App.DbCli/appsettings.json) using [.NET Configuration](https://docs.microsoft.com/en-us/dotnet/core/extensions/configuration).
@@ -40,6 +40,6 @@ App.DbCli> dotnet run -- "Test" true
 
 [TestBase.cs](./App.Tests/Tests/TestBase.cs) is an abstract generic class that is intended to be used with any service of `IService<EntityBase>`. It is responsible for initializing / disposing the `DbManager` instance and defining tests for the `QueryAll`, `Find`, and `Remove` methods of `IService`.
 
-[CategoryTest.cs](./APp.Tests/Tests/CategoryTest.cs) demonstrates an implementation of `TestBase`. It is responsible for initializing its service instance and seeding the database, as well as defining tests for its `Save` method and any other unique functionality provided by `CategoryService`.
+[CategoryTest.cs](./App.Tests/Tests/CategoryTest.cs) demonstrates an implementation of `TestBase`. It is responsible for initializing its service instance and seeding the database, as well as defining tests for its `Save` method and any other unique functionality provided by `CategoryService`.
 
 Note the use of test data via `[MemberData(nameof(Data))]` as a simple way of providing multiple objects for executing the same test.
