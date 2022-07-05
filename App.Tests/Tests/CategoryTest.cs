@@ -6,7 +6,7 @@ public class CategoryTest : TestBase<Category, CategoryService>
 {
 	public CategoryTest() : base()
 	{
-		svc = new CategoryService(generator.Context);
+		svc = new CategoryService(manager.Context);
 		svc.SeedTest().Wait();
 
 	}
@@ -24,16 +24,6 @@ public class CategoryTest : TestBase<Category, CategoryService>
 		await svc.Save(entity);
 		res = await svc.Find(res.Id);
 		Assert.Equal(res.Value, update);
-	}
-
-	[Theory]
-	[InlineData(1)]
-	[InlineData(2)]
-	public async Task Remove(int id)
-	{
-		var entity = await svc.Find(id);
-		var res = await svc.Remove(entity);
-		Assert.True(res);
 	}
 
 	public static IEnumerable<object[]> Data =>

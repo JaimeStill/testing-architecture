@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using App.Data;
 
 namespace App.Seed;
-public class DbGenerator : IDisposable
+public class DbManager : IDisposable
 {
 	readonly bool destroy;
 	public AppDbContext Context { get; private set; }
@@ -29,7 +29,7 @@ public class DbGenerator : IDisposable
 		return new AppDbContext(builder.Options);
 	}
 
-	public DbGenerator(string env = "Dev", bool destroy = false)
+	public DbManager(string env = "Dev", bool destroy = false)
 	{
 		this.destroy = destroy;
 		Context = GetDbContext(GetConnectionString(env));

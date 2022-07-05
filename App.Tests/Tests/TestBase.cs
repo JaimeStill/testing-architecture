@@ -7,18 +7,18 @@ public abstract class TestBase<T, S> : IDisposable
 	where T : EntityBase
 	where S : IService<T>
 {
-	protected DbGenerator generator;
+	protected DbManager manager;
 	protected S svc;
 
 	public TestBase()
 	{
-		generator = new("Test", true);
-		generator.Initialize();
+		manager = new("Test", true);
+		manager.Initialize();
 	}
 
 	public virtual void Dispose()
 	{
-		generator.Dispose();
+		manager.Dispose();
 		GC.SuppressFinalize(this);
 	}
 
@@ -38,6 +38,16 @@ public abstract class TestBase<T, S> : IDisposable
 	{
 		var res = await svc.Find(id);
 		Assert.Equal(id, res.Id);
+	}
+
+	[Theory]
+	[InlineData(1)]
+	[InlineData(2)]
+	public async Task Remove(int id)
+	{
+		var entity = await svc.Find(id);
+		var res = await svc.Remove(entity);
+		Assert.True(res);
 	}
 
 	#endregion
