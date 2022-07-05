@@ -38,7 +38,7 @@ public class ServiceBase<T> : IService<T> where T : EntityBase
 	{
 		try
 		{
-			await db.Set<T>().AddAsync(entity);
+			await set.AddAsync(entity);
 			await db.SaveChangesAsync();
 			return entity;
 		}
@@ -52,7 +52,7 @@ public class ServiceBase<T> : IService<T> where T : EntityBase
 	{
 		try
 		{
-			db.Set<T>().Update(entity);
+			set.Update(entity);
 			await db.SaveChangesAsync();
 			return entity;
 		}
